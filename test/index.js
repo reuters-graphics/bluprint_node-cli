@@ -1,13 +1,13 @@
 require('dotenv').config();
-const ReutersGraphicsx2fprojectSlug = require('../dist');
+const ProjectClass = require('../dist');
 const expect = require('expect.js');
 
-const reutersGraphicsx2fprojectSlug = new ReutersGraphicsx2fprojectSlug();
+const projectInstance = new ProjectClass();
 
-describe('test ReutersGraphicsx2fprojectSlug', function() {
+describe('test ProjectClass', function() {
   this.timeout(10000);
 
-  it('Should return regions', function() {
-    expect(reutersGraphicsx2fprojectSlug.run()).to.be('hello world');
+  it('Should greet', function() {
+    expect(projectInstance.greet('Sue', true)).to.be('Hello, Sue!');
   });
 });

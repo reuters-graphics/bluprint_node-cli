@@ -13,11 +13,16 @@ const plugins = [
 const output = {
   dir: 'dist',
   format: 'cjs',
-  paths: { '@reuters-graphics/reuters-graphicsx2fproject-slug': './index.js' },
+  paths: { '@reuters-graphics/project-slug': './index.js' },
 };
 
 export default [{
   input: 'src/index.js',
   output,
   plugins,
+}, {
+  input: 'src/cli.js',
+  output: { ...output, ...{ banner: '#!/usr/bin/env node' } },
+  plugins,
+  external: ['@reuters-graphics/project-slug'],
 }];

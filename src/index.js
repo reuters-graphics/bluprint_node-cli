@@ -1,7 +1,7 @@
-class ReutersGraphicsx2fprojectSlug {
-  run() {
-    return 'hello world';
+class ProjectClass {
+  greet(name, happy = false) {
+    return `Hello, ${name}${happy ? '!' : '.'}`;
   }
 }
 
-export default ReutersGraphicsx2fprojectSlug;
+export default ProjectClass;

@@ -1,8 +1,11 @@
 {
-  "name": "@reuters-graphics/reuters-graphicsx2fproject-slug",
+  "name": "@reuters-graphics/project-slug",
   "version": "0.0.1",
   "main": "dist/index.js",
-  "repository": "https://github.com/reuters-graphics/reuters-graphicsx2fproject-slug",
+  "bin": {
+    "project-slug": "dist/cli.js"
+  },
+  "repository": "https://github.com/reuters-graphics/project-slug",
   "author": "Jon McClure <jon.r.mcclure@gmail.com>",
   "license": "MIT",
   "private": false,
@@ -28,5 +31,7 @@
     "rollup-plugin-node-externals": "^2.2.0",
     "rollup-plugin-size-snapshot": "^0.12.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "sade": "^1.7.4"
+  }
 }

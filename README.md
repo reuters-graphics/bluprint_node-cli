@@ -1,26 +1,28 @@
 ![](badge.svg)
 
-# @reuters-graphics/reuters-graphicsx2fproject-slug
+# bluprint_node-cli
 
-[![npm version](https://badge.fury.io/js/%40reuters-graphics%2Freuters-graphicsx2fproject-slug.svg)](https://badge.fury.io/js/%40reuters-graphics%2Freuters-graphicsx2fproject-slug) [![Reuters open source software](https://badgen.net/badge/Reuters/open%20source/?color=ff8000)](https://github.com/reuters-graphics/)
+[![Reuters open source software](https://badgen.net/badge/Reuters/open%20source/?color=ff8000)](https://github.com/reuters-graphics/)
+
+A [bluprint](https://github.com/reuters-graphics/bluprint) template for simple Node.js CLIs.
+
+Features:
+
+- Creates a CLI and a module you can use in node.
+- Uses [sade](https://www.npmjs.com/package/sade) to parse CLI args.
+- Built in mocha testing.
 
 ## Quickstart
 
-```
-$ yarn add @reuters-graphics/reuters-graphicsx2fproject-slug
-```
+If you haven't already, add this bluprint to your CLI.
 
-```javascript
-import ReutersGraphicsx2fprojectSlug from '@reuters-graphics/reuters-graphicsx2fproject-slug';
-
-const reutersGraphicsx2fprojectSlug = new ReutersGraphicsx2fprojectSlug();
-
-reutersGraphicsx2fprojectSlug.run();
+```bash
+bluprint add https://github.com/reuters-graphics/bluprint_node-cli
 ```
 
+Make a new directory and use the bluprint.
 
-## Testing
-
-```
-$ yarn test
+```bash
+mkdir my-project && cd my-project
+bluprint start
 ```
