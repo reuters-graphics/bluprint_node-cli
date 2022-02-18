@@ -19,7 +19,7 @@
     "test": "yarn build && nyc mocha"
   },
   "lint-staged": {
-    "src/**/*.js": [
+    "./src/*.js": [
       "eslint --cache --fix",
       "prettier --write"
     ]
