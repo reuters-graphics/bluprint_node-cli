@@ -1,4 +1,4 @@
-![](badge.svg)
+![](https://graphics.thomsonreuters.com/style-assets/images/logos/reuters-graphics-logo/svg/graphics-logo-color-dark.svg)
 
 # @reuters-graphics/project-slug
 
@@ -13,7 +13,7 @@ yarn add @reuters-graphics/project-slug
 ### CLI
 
 ```bash
-project-slug greet Jon
+project-slug greet World
 ```
 
 ### Module
@@ -23,7 +23,7 @@ import ProjectClass from '@reuters-graphics/project-slug';
 
 const projectInstance = new ProjectClass();
 
-projectInstance.greet('Jon');
+projectInstance.greet('World');
 ```
 
 ## Testing

@@ -1,5 +1,5 @@
 {
-  "bluprint": "^0.6.2",
+  "bluprint": "^0.6.6",
   "name": "Node CLI",
   "category": "",
   "actions": [{
@@ -7,7 +7,7 @@
     "questions": [{
       "type": "text",
       "name": "projectSlug",
-      "message": "What's the slug for your CLI?"
+      "message": "What's the slug for your CLI, e.g., my-project?"
     }]
   }, {
     "action": "remove",
@@ -16,8 +16,12 @@
     "action": "move",
     "paths": ["PROJECT_README.md", "README.md"]
   }, {
-    "action": "move",
-    "paths": ["env", ".env"]
+    "action": "copy",
+    "paths": [".env.example", ".env"]
+  }, {
+    "action": "render",
+    "engine": "mustache",
+    "files": ["LICENSE"]
   }, {
     "action": "regexreplace",
     "files": [
@@ -36,14 +40,12 @@
   }, {
     "action": "execute",
     "cmds": [
-      ["yarn"]
-    ]
-  }, {
-    "action": "execute",
-    "cmds": [
+      ["yarn"],
       ["git", ["init"]],
       ["git", ["add", "."]],
-      ["git", ["commit", "-m", "initial"]]
+      ["git", ["commit", "-m", "initial"]],
+      ["chmod", ["ug+x", ".husky/pre-commit"]],
+      ["yarn", ["husky", "install"]]
     ]
   }, {
     "action": "log",
