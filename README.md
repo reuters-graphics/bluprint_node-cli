@@ -17,7 +17,7 @@ Features:
 If you haven't already, add this bluprint to your CLI.
 
 ```bash
-bluprint add https://github.com/reuters-graphics/bluprint_node-cli
+bluprint add reuters-graphics/bluprint_node-cli
 ```
 
 Make a new directory and use the bluprint.
