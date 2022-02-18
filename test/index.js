@@ -11,7 +11,7 @@ describe('test ProjectClass', function() {
   before(function() {
     mock({});
   });
-  
+
   after(function() {
     mock.restore();
   });
