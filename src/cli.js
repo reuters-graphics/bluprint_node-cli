@@ -1,15 +1,14 @@
-import ProjectClass from '@reuters-graphics/project-slug';
+import ProjectClass from '@reuters-graphics/project-slug'; // eslint-disable-line import/no-unresolved
 import pkg from '../package.json';
 import sade from 'sade';
 
 const prog = sade('project-slug');
 
-prog
-  .version(pkg.version);
+prog.version(pkg.version);
 
 prog
   .command('greet <name>')
-  .option('-h, --happy', 'Happy to see them?')
+  .option('-h, --happy', 'Happy to see them??')
   .action((name, opts) => {
     const projectInstance = new ProjectClass();
     projectInstance.greet(name, opts.happy);
