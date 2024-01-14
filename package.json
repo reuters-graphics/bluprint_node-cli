@@ -2,11 +2,11 @@
   "name": "@reuters-graphics/project-slug",
   "version": "0.0.1",
   "type": "module",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
   "exports": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "project-slug": "dist/cli.js"
+    "project-slug": "./dist/cli.js"
   },
   "repository": "https://github.com/reuters-graphics/project-slug",
   "author": "",
@@ -17,7 +17,7 @@
     "dist/**/*"
   ],
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "c8": {
     "reporter": [

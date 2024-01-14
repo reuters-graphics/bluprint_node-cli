@@ -25,14 +25,15 @@
   }, {
     "action": "regexreplace",
     "files": [
-      "README.md",
-      "HOME.md",
-      "package.json",
-      "tsconfig.json",
-      "rollup.config.js",
-      "test/index.ts",
+      ".github/test-and-release.yaml",
+      "src/cli.ts",
       "src/index.ts",
-      "src/cli.ts"
+      "test/index.ts",
+      "HOME.md",
+      "README.md",
+      "package.json",
+      "rollup.config.js",
+      "tsconfig.json"
     ],
     "replace": [
       ["project-slug", "{{#slugify}}{{ projectSlug }}{{/slugify}}"],
