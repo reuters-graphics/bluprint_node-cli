@@ -25,12 +25,15 @@
   }, {
     "action": "regexreplace",
     "files": [
+      ".github/test-and-release.yaml",
+      "src/cli.ts",
+      "src/index.ts",
+      "test/index.ts",
+      "HOME.md",
       "README.md",
       "package.json",
       "rollup.config.js",
-      "test/index.js",
-      "src/index.js",
-      "src/cli.js"
+      "tsconfig.json"
     ],
     "replace": [
       ["project-slug", "{{#slugify}}{{ projectSlug }}{{/slugify}}"],
@@ -40,12 +43,11 @@
   }, {
     "action": "execute",
     "cmds": [
-      ["yarn"],
+      ["pnpm", ["i"]],
       ["git", ["init"]],
       ["git", ["add", "."]],
       ["git", ["commit", "-m", "initial"]],
-      ["chmod", ["ug+x", ".husky/pre-commit"]],
-      ["yarn", ["husky", "install"]]
+      ["npx", ["lefthook", "install"]]
     ]
   }, {
     "action": "log",

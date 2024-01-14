@@ -10,7 +10,9 @@ Features:
 
 - Creates a CLI and a module you can use in node.
 - Uses [sade](https://www.npmjs.com/package/sade) to parse CLI args.
-- Built in mocha testing.
+- Built in mocha testing
+- Typescript and docs site by TypeDoc
+- GitHub Actions template for CI test and release
 
 ## Quickstart
 
