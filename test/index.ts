@@ -1,7 +1,8 @@
-require('dotenv').config();
-const ProjectClass = require('../dist');
-const expect = require('expect.js');
-const mock = require('mock-fs');
+import 'dotenv/config';
+
+import { ProjectClass } from './../dist/index.js';
+import expect from 'expect.js';
+import mock from 'mock-fs';
 
 const projectInstance = new ProjectClass();
 

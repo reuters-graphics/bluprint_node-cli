@@ -1,10 +1,14 @@
-import ProjectClass from '@reuters-graphics/project-slug'; // eslint-disable-line import/no-unresolved
-import pkg from '../package.json';
+import { name, version } from '../package.json';
+
+import { ProjectClass } from '@reuters-graphics/project-slug';
 import sade from 'sade';
+import updateNotifier from 'update-notifier';
+
+updateNotifier({ pkg: { name, version } }).notify();
 
 const prog = sade('project-slug');
 
-prog.version(pkg.version);
+prog.version(version);
 
 prog
   .command('greet <name>')

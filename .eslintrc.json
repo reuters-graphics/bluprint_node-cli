@@ -1,15 +1,14 @@
 {
   "root": true,
-  "parser": "@babel/eslint-parser",
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
   "env": {
     "node": true,
     "mocha": true
   },
-  "extends": [
-    "standard",
-    "eslint:recommended",
-    "plugin:import/recommended"
-  ],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
   "parserOptions": {
     "requireConfigFile": false
   },
@@ -20,12 +19,10 @@
       {
         "arrays": "always-multiline",
         "objects": "always-multiline",
-        "imports": "never",
+        "imports": "always-multiline",
         "exports": "never",
         "functions": "never"
       }
-    ],
-    "operator-linebreak": ["error", "after"],
-    "space-before-function-paren": ["error", "never"]
+    ]
   }
 }
