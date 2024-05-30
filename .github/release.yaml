@@ -1,0 +1,52 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+permissions: {}
+jobs:
+  release:
+    # prevents this action from running on forks
+    if: github.repository == 'reuters-graphics/project-slug'
+    permissions:
+      contents: write
+      pull-requests: write
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - id: pnpm
+        name: PNPM action setup
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
+      - id: setup
+        name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - id: install
+        name: Install dependencies
+        run: pnpm install
+
+      - id: changesets
+        name: Create Release Pull Request or Publish to npm
+        uses: changesets/action@v1
+        with:
+          version: pnpm run changeset:version
+          publish: pnpm run changeset:publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

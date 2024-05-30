@@ -25,7 +25,10 @@
   }, {
     "action": "regexreplace",
     "files": [
-      ".github/test-and-release.yaml",
+      ".github/docs.yaml",
+      ".github/lint.yaml",
+      ".github/release.yaml",
+      ".github/test.yaml",
       "src/cli.ts",
       "src/index.ts",
       "test/index.ts",
@@ -41,13 +44,22 @@
       ["projectInstance", "{{#camelize}}{{#slugify}}{{ projectSlug }}{{/slugify}}{{/camelize}}"]
     ]
   }, {
+    "action": "move",
+    "paths": [
+      [".github/docs.yaml", ".github/workflows/docs.yaml"],
+      [".github/lint.yaml", ".github/workflows/lint.yaml"],
+      [".github/release.yaml", ".github/workflows/release.yaml"],
+      [".github/test.yaml", ".github/workflows/test.yaml"]
+    ]
+  }, {
     "action": "execute",
     "cmds": [
       ["pnpm", ["i"]],
       ["git", ["init"]],
       ["git", ["add", "."]],
       ["git", ["commit", "-m", "initial"]],
-      ["npx", ["lefthook", "install"]]
+      ["npx", ["lefthook", "install"]],
+      ["npx", ["changeset", "init"]]
     ]
   }, {
     "action": "log",

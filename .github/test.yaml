@@ -1,0 +1,40 @@
+name: Test
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - id: checkout
+        name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - id: pnpm
+        name: PNPM action setup
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
+      - id: setup
+        name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - id: install
+        name: Install dependencies
+        run: pnpm install
+
+      - id: test
+        name: Run tests
+        run: pnpm run test

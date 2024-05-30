@@ -1,0 +1,57 @@
+name: Docs
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - 'changeset-release/**'
+    types:
+      - closed
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+permissions: {}
+jobs:
+  build:
+    if: |
+      github.repository == 'reuters-graphics/project-slug' &&
+      ((github.event_name == 'pull_request' && github.event.pull_request.merged == true) || github.event_name == 'workflow_dispatch')
+    permissions:
+      contents: write
+      pull-requests: write
+    name: Build docs
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - id: pnpm
+        name: PNPM action setup
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
+      - id: setup
+        name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - id: install
+        name: Install dependencies
+        run: pnpm install
+
+      - id: docs
+        name: Build docs
+        run: pnpm run build:docs
+
+      - id: commit
+        name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Build docs"
+          git push
